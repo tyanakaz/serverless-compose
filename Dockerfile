@@ -24,16 +24,14 @@ ENV NPM_CONFIG_LOGLEVEL info
 
 # Install ember-cli
 RUN set -x \
-        && npm install -g serverless
+        && npm install -g serverless --save
 
 WORKDIR /usr/src/app
 
 # Install npm_modules
 COPY package.json /usr/src/app
-COPY package-lock.json /usr/src/app
-COPY ssl /usr/src/app/ssl
 
 RUN set -x \
         && rm -rf /usr/src/app/node_modules \
         && npm cache clean --force \
-        && npm ci
+        && npm install
