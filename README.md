@@ -1,1 +1,1 @@
-# serverless-go
+# serverless-compose
